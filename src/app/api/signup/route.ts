@@ -4,13 +4,13 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export async function POST(request: NextRequest) {
-  const { email, password, repeatedPassword } = await request.json();
+  const { email, password, passwordRepeated } = await request.json();
 
   const userAlreadyExist = await prisma.user.findUnique({
     where: { email },
   });
 
-  if (!(password === repeatedPassword)) {
+  if (!(password === passwordRepeated)) {
     throw new Error("the password and the confirmation password doesnt match");
   }
 
