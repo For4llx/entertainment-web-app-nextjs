@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LoginForm from "../LoginForm";
 
 export default function Login() {
   return (
@@ -6,14 +7,7 @@ export default function Login() {
       <header></header>
       <main>
         <article>
-          <form>
-            <h1>Login</h1>
-            <div>
-              <input placeholder="Email" type="text" />
-              <input placeholder="Password" type="text" />
-            </div>
-            <button type="submit">Login to your account</button>
-          </form>
+          <LoginForm />
           <div>
             <p>Don't have an account?</p>
             <Link href={"./signup"}>Sign Up</Link>
