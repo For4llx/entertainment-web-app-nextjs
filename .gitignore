@@ -20,6 +20,7 @@
 *.pem
 .env
 prisma
+assets
 
 # debug
 npm-debug.log*

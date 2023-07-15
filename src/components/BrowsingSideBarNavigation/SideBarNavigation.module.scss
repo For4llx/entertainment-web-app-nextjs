@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.link {
+  color: var(--greyishBlue);
+  fill: var(--greyishBlue);
+
+  &:hover {
+    color: var(--red);
+    fill: var(--red);
+  }
+}
+
+.linkActive {
+  color: var(--pureWhite);
+  fill: var(--pureWhite);
+}
