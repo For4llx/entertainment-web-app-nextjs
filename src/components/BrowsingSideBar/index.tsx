@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SideBarNavigation from "../SideBarNavigation";
+import SideBarNavigation from "../BrowsingSideBarNavigation";
 import styles from "./SideBar.module.scss";
 
 export default function AppSideBar() {
