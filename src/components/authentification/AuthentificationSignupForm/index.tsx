@@ -1,8 +1,10 @@
 "use client";
 
+import AppButton from "@/components/base/AppButton";
+import AppInputField from "@/components/base/AppInputField";
 import { useRef } from "react";
 
-export default function SignupForm() {
+export default function AuthentificationSignup() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const passwordRepeatedRef = useRef<HTMLInputElement>(null);
@@ -18,7 +20,7 @@ export default function SignupForm() {
       throw new Error("Misisng a field");
     }
 
-    const response = await fetch("./api/signup", {
+    const response = await fetch("./api/authentification/signup", {
       method: "POST",
       body,
     });
@@ -28,15 +30,26 @@ export default function SignupForm() {
     <form onSubmit={handleSignup}>
       <h1>Sign Up</h1>
       <div>
-        <input ref={emailRef} placeholder="Email" type="text" />
-        <input ref={passwordRef} placeholder="Password" type="password" />
-        <input
+        <AppInputField
+          ref={emailRef}
+          placeholder="Email"
+          type="text"
+          required
+        />
+        <AppInputField
+          ref={passwordRef}
+          placeholder="Password"
+          type="password"
+          required
+        />
+        <AppInputField
           ref={passwordRepeatedRef}
           placeholder="Repeat password"
           type="password"
+          required
         />
       </div>
-      <button type="submit">Create an account</button>
+      <AppButton type="submit">Create an account</AppButton>
     </form>
   );
 }

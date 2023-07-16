@@ -2,37 +2,37 @@
 .headingLarge {
   font-size: 32px;
   letter-spacing: -0.5px;
-  font-weight: 300px;
+  font-weight: 300;
 }
 
 .headingMedium {
   font-size: 24px;
   letter-spacing: 0px;
-  font-weight: 300px;
+  font-weight: 300;
 }
 
 .headingSmall {
   font-size: 24px;
   letter-spacing: 0px;
-  font-weight: 500px;
+  font-weight: 500;
 }
 
 .headingXSmall {
   font-size: 18px;
   letter-spacing: 0px;
-  font-weight: 500px;
+  font-weight: 500;
 }
 
 .bodyMedium {
   font-size: 15px;
   letter-spacing: 0px;
-  font-weight: 300px;
+  font-weight: 300;
 }
 
 .bodyXSmall {
   font-size: 13px;
   letter-spacing: 0px;
-  font-weight: 300px;
+  font-weight: 300;
 }
 
 /* Color */
@@ -59,4 +59,37 @@
 .pureWhite {
   color: var(--pureWhite);
   fill: var(--pureWhite);
+}
+
+.inputField {
+  caret-color: var(--red);
+  color: var(--pureWhite);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--greyishBlue);
+  background-color: transparent;
+
+  &::placeholder {
+    color: var(--greyishBlue);
+  }
+}
+
+.button {
+  cursor: pointer;
+  background-color: var(--red);
+  color: var(--pureWhite);
+  border-radius: 6px;
+  padding: 14px;
+  width: 100%;
+
+  &:hover {
+    color: var(--darkBlue);
+    background-color: var(--pureWhite);
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: max(calc(50% - var(--container) / 2), 2rem);
+  padding-right: max(calc(50% - var(--container) / 2), 2rem);
 }

@@ -1,5 +1,5 @@
-import Signup from "@/components/AuthentificationSignup";
+import AuthentificationSignup from "@/components/authentification/AuthentificationSignupForm";
 
 export default function AuthentificationPage() {
-  return <Signup />;
+  return <AuthentificationSignup />;
 }

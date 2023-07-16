@@ -1,5 +1,5 @@
-import Login from "@/components/AuthentificationLogin";
+import AuthentificationLogin from "@/components/authentification/AuthentificationLogin";
 
 export default function AuthentificationPage() {
-  return <Login />;
+  return <AuthentificationLogin />;
 }

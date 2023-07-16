@@ -1,4 +1,4 @@
-import AppSideBar from "@/components/AppSideBar";
+import BrowsingSideBar from "@/components/browsing/BrowsingSideBar";
 import CollectionProvider from "@/provider/CollectionProvider";
 
 export default function TvSeriesLayout({
@@ -8,7 +8,7 @@ export default function TvSeriesLayout({
 }) {
   return (
     <CollectionProvider>
-      <AppSideBar />
+      <BrowsingSideBar />
       {children}
     </CollectionProvider>
   );
