@@ -2,8 +2,7 @@
 
 import { useRef } from "react";
 import utilsStyles from "@/styles/Utils.module.scss";
-import styles from "./AuthentificationLoginForm.module.scss";
-import AppInputField from "@/components/base/AppInputField";
+import styles from "./Authentification.module.scss";
 import AppButton from "@/components/base/AppButton";
 
 export default function AuthentificationLoginForm() {
@@ -27,16 +26,18 @@ export default function AuthentificationLoginForm() {
   }
 
   return (
-    <form className={styles.container} onSubmit={handleLogin}>
+    <form className={styles.form} onSubmit={handleLogin}>
       <h1 className={`${styles.title} ${utilsStyles.headingLarge}`}>Login</h1>
       <div className={styles.inputGroup}>
-        <AppInputField
+        <input
+          className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
           ref={emailRef}
           placeholder="Email"
           type={"text"}
           required
         />
-        <AppInputField
+        <input
+          className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
           ref={passwordRef}
           placeholder="Password"
           type={"password"}

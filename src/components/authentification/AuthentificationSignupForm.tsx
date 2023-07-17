@@ -1,10 +1,10 @@
 "use client";
 
 import AppButton from "@/components/base/AppButton";
-import AppInputField from "@/components/base/AppInputField";
 import { useRef } from "react";
+import utilsStyles from "@/styles/Utils.module.scss";
 
-export default function AuthentificationSignup() {
+export default function AuthentificationSignupForm() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const passwordRepeatedRef = useRef<HTMLInputElement>(null);
@@ -30,19 +30,22 @@ export default function AuthentificationSignup() {
     <form onSubmit={handleSignup}>
       <h1>Sign Up</h1>
       <div>
-        <AppInputField
+        <input
+          className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
           ref={emailRef}
           placeholder="Email"
           type="text"
           required
         />
-        <AppInputField
+        <input
+          className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
           ref={passwordRef}
           placeholder="Password"
           type="password"
           required
         />
-        <AppInputField
+        <input
+          className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
           ref={passwordRepeatedRef}
           placeholder="Repeat password"
           type="password"

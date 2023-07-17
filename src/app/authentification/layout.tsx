@@ -1,6 +1,8 @@
-import AuthentificationHeader from "@/components/authentification/AuthentificationHeader";
-import AuthentificationMain from "@/components/authentification/AuthentificationMain";
-import AuthentificationLayout from "@/components/AuthentificationLayout";
+import {
+  Authentification,
+  AuthentificationHeader,
+  AuthentificationMain,
+} from "@/components/authentification";
 
 export default function TvSeriesLayout({
   children,
@@ -8,9 +10,9 @@ export default function TvSeriesLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AuthentificationLayout>
+    <Authentification>
       <AuthentificationHeader />
       <AuthentificationMain>{children}</AuthentificationMain>
-    </AuthentificationLayout>
+    </Authentification>
   );
 }
