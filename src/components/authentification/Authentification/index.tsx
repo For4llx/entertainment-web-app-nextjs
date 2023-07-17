@@ -5,5 +5,5 @@ interface IProps {
 }
 
 export default function Authentification({ children }: IProps) {
-  return <div className={styles.page}>{children}</div>;
+  return <div className={styles.container}>{children}</div>;
 }

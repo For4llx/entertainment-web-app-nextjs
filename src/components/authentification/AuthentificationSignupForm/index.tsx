@@ -3,6 +3,7 @@
 import AppButton from "@/components/base/AppButton";
 import { useRef } from "react";
 import utilsStyles from "@/styles/Utils.module.scss";
+import styles from "./AuthentificationSignupForm.module.scss";
 
 export default function AuthentificationSignupForm() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -27,9 +28,9 @@ export default function AuthentificationSignupForm() {
   }
 
   return (
-    <form onSubmit={handleSignup}>
-      <h1>Sign Up</h1>
-      <div>
+    <form className={styles.container} onSubmit={handleSignup}>
+      <h1 className={`${styles.title} ${utilsStyles.headingLarge}`}>Sign Up</h1>
+      <div className={styles.inputGroup}>
         <input
           className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
           ref={emailRef}

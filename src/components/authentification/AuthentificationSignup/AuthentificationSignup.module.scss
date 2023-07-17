@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: var(--semiDarkBlue);
+  border-radius: 20px;
+  padding: 2rem;
+  align-items: center;
+  width: 400px;
+}
+
+.paragraph {
+  color: var(--pureWhite);
+}
+
+.navigation {
+  display: flex;
+  gap: 8px;
+}
+
+.link {
+  color: var(--red);
+}

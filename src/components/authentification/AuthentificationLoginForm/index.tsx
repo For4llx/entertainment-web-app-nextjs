@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import utilsStyles from "@/styles/Utils.module.scss";
-import styles from "./Authentification.module.scss";
+import styles from "./AuthentificationLoginForm.module.scss";
 import AppButton from "@/components/base/AppButton";
 
 export default function AuthentificationLoginForm() {
@@ -26,7 +26,7 @@ export default function AuthentificationLoginForm() {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleLogin}>
+    <form className={styles.container} onSubmit={handleLogin}>
       <h1 className={`${styles.title} ${utilsStyles.headingLarge}`}>Login</h1>
       <div className={styles.inputGroup}>
         <input

@@ -1,21 +1,22 @@
 import Link from "next/link";
-import LoginForm from "./AuthentificationLoginForm";
-import styles from "./Authentification.module.scss";
-import utilsStyles from "@/styles/Utils.module.scss";
 
-export default function AuthentificationLogin() {
+import styles from "./AuthentificationSignup.module.scss";
+import utilsStyles from "@/styles/Utils.module.scss";
+import AuthentificationSignupForm from "../AuthentificationSignupForm";
+
+export default function AuthentificationSignup() {
   return (
     <article className={styles.container}>
-      <LoginForm />
+      <AuthentificationSignupForm />
       <div className={styles.navigation}>
         <p className={`${styles.paragraph} ${utilsStyles.bodyMedium}`}>
-          Don't have an account?
+          Already have an account?
         </p>
         <Link
           className={`${styles.link} ${utilsStyles.bodyMedium}`}
-          href={"./signup"}
+          href={"./login"}
         >
-          Sign Up
+          Login
         </Link>
       </div>
     </article>

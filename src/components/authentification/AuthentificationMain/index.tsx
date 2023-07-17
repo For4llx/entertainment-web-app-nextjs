@@ -1,4 +1,4 @@
-import styles from "./Authentification.module.scss";
+import styles from "./AuthentificationMain.module.scss";
 import utilsStyles from "@/styles/Utils.module.scss";
 
 interface IProps {
@@ -6,9 +6,5 @@ interface IProps {
 }
 
 export default function AuthentificationMain({ children }: IProps) {
-  return (
-    <main className={`${styles.main} ${utilsStyles.container}`}>
-      {children}
-    </main>
-  );
+  return <main className={styles.container}>{children}</main>;
 }
