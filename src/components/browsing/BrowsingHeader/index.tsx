@@ -1,13 +1,13 @@
 import AppLogo from "@/components/base/AppLogo";
 import Image from "next/image";
-import SideBarNavigation from "../BrowsingSideBarNavigation";
-import styles from "./SideBar.module.scss";
+import BrowsingHeaderNavigation from "../BrowsingHeaderNavigation";
+import styles from "./BrowsingHeader.module.scss";
 
-export default function AppSideBar() {
+export default function BrowsingHeader() {
   return (
     <header className={styles.container}>
       <AppLogo />
-      <SideBarNavigation />
+      <BrowsingHeaderNavigation />
       <Image
         className={styles.avatar}
         width={40}

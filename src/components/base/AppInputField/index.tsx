@@ -1,14 +1,14 @@
 import utilsStyles from "@/styles/Utils.module.scss";
 
 interface IProps {
-  ref: React.RefObject<HTMLInputElement>;
+  inputRef: React.RefObject<HTMLInputElement>;
   placeholder: string;
   required: boolean;
   type: string;
 }
 
 export default function AppInputField({
-  ref,
+  inputRef,
   placeholder,
   required,
   type,
@@ -16,7 +16,7 @@ export default function AppInputField({
   return (
     <input
       className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
-      ref={ref}
+      ref={inputRef}
       placeholder={placeholder}
       type={type}
       required={required}

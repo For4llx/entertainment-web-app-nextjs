@@ -1,4 +1,8 @@
-import BrowsingSideBar from "@/components/browsing/BrowsingSideBar";
+import {
+  BrowsingLayout,
+  BrowsingMain,
+  BrowsingHeader,
+} from "@/components/browsing";
 import CollectionProvider from "@/provider/CollectionProvider";
 
 export default function TvSeriesLayout({
@@ -8,8 +12,10 @@ export default function TvSeriesLayout({
 }) {
   return (
     <CollectionProvider>
-      <BrowsingSideBar />
-      {children}
+      <BrowsingLayout>
+        <BrowsingHeader />
+        <BrowsingMain>{children}</BrowsingMain>
+      </BrowsingLayout>
     </CollectionProvider>
   );
 }

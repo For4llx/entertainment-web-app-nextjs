@@ -1,0 +1,11 @@
+.searchField {
+  caret-color: var(--red);
+  color: var(--pureWhite);
+  padding-bottom: 14px;
+  background-color: transparent;
+  height: fit-content;
+
+  &:focus {
+    border-bottom: 1px solid var(--greyishBlue);
+  }
+}

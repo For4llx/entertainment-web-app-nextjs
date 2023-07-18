@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "./SideBarNavigation.module.scss";
+import styles from "./BrowsingHeaderNavigation.module.scss";
 
-export default function SideBarNavigation() {
+export default function BrowsingHeaderNavigation() {
   const pathname = usePathname();
 
   return (

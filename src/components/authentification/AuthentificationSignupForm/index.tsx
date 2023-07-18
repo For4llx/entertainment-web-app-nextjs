@@ -35,19 +35,19 @@ export default function AuthentificationSignupForm() {
       </AppHeading>
       <div className={styles.inputGroup}>
         <AppInputField
-          ref={emailRef}
+          inputRef={emailRef}
           placeholder="Email"
           type="text"
           required
         />
         <AppInputField
-          ref={passwordRef}
+          inputRef={passwordRef}
           placeholder="Password"
           type="password"
           required
         />
         <AppInputField
-          ref={passwordRepeatedRef}
+          inputRef={passwordRepeatedRef}
           placeholder="Repeat password"
           type="password"
           required

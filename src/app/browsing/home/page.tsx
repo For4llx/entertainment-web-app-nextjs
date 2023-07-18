@@ -1,13 +1,9 @@
-import AppSearch from "@/components/browsing/BrowsingSearch";
-import Collection from "@/components/BrowsingCollection";
-import Carousel from "@/components/Carousel";
+import { BrowsingSearch } from "@/components/browsing";
 
 export default function HomePage() {
   return (
     <>
-      <AppSearch placeholder={"Search for movies or TV series"} />
-      <Carousel />
-      <Collection />
+      <BrowsingSearch placeholder={"Search for movies or TV series"} />
     </>
   );
 }
