@@ -1,6 +1,6 @@
 "use client";
 
-import ICollection from "@/interfaces/collection";
+import { ICollection } from "@/interfaces/collection";
 import { createContext, useState } from "react";
 
 interface IContext {

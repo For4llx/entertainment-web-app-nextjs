@@ -1,14 +1,20 @@
-export default interface ICollection {
+export interface ICollection {
   id: number;
-  title: String;
+  title: string;
   thumbnail: Array<IThumbnail>;
   year: number;
-  category: String;
-  rating: String;
-  isTrending: Boolean;
+  category: string;
+  rating: string;
+  isTrending: boolean;
 }
 
-interface IThumbnail {
-  trending: Array<string>;
-  regular: Array<string>;
+export interface IThumbnail {
+  trending: IImage;
+  regular: IImage;
+}
+
+export interface IImage {
+  small: string;
+  medium: string;
+  large: string;
 }

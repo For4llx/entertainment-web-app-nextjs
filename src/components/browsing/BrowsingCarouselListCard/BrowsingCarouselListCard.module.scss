@@ -1,0 +1,26 @@
+.container {
+  position: relative;
+  height: 230px;
+  width: 470px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image {
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.description {
+  width: 100%;
+  padding: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(transparent, hsla(0, 0%, 0%, 0.75));
+}
