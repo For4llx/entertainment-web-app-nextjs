@@ -4,7 +4,7 @@ import utilsStyles from "@/styles/Utils.module.scss";
 
 export default function AuthentificationHeader() {
   return (
-    <header className={`${utilsStyles.container} ${styles.container}`}>
+    <header className={`${styles.container} ${utilsStyles.container}`}>
       <AppLogo />
     </header>
   );

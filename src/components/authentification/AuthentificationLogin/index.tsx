@@ -2,15 +2,16 @@ import Link from "next/link";
 import styles from "./AuthentificationLogin.module.scss";
 import utilsStyles from "@/styles/Utils.module.scss";
 import AuthentificationLoginForm from "../AuthentificationLoginForm";
+import AppParagraph from "@/components/base/AppParagraph";
 
 export default function AuthentificationLogin() {
   return (
     <article className={styles.container}>
       <AuthentificationLoginForm />
       <div className={styles.navigation}>
-        <p className={`${styles.paragraph} ${utilsStyles.bodyMedium}`}>
+        <AppParagraph size="bodyMedium" color="pureWhite">
           Don't have an account?
-        </p>
+        </AppParagraph>
         <Link
           className={`${styles.link} ${utilsStyles.bodyMedium}`}
           href={"./signup"}

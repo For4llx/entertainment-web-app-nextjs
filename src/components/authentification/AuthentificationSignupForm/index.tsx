@@ -2,8 +2,9 @@
 
 import AppButton from "@/components/base/AppButton";
 import { useRef } from "react";
-import utilsStyles from "@/styles/Utils.module.scss";
 import styles from "./AuthentificationSignupForm.module.scss";
+import AppHeading from "@/components/base/AppHeading";
+import AppInputField from "@/components/base/AppInputField";
 
 export default function AuthentificationSignupForm() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -29,24 +30,23 @@ export default function AuthentificationSignupForm() {
 
   return (
     <form className={styles.container} onSubmit={handleSignup}>
-      <h1 className={`${styles.title} ${utilsStyles.headingLarge}`}>Sign Up</h1>
+      <AppHeading size="headingLarge" color="pureWhite">
+        Sign Up
+      </AppHeading>
       <div className={styles.inputGroup}>
-        <input
-          className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
+        <AppInputField
           ref={emailRef}
           placeholder="Email"
           type="text"
           required
         />
-        <input
-          className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
+        <AppInputField
           ref={passwordRef}
           placeholder="Password"
           type="password"
           required
         />
-        <input
-          className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
+        <AppInputField
           ref={passwordRepeatedRef}
           placeholder="Repeat password"
           type="password"

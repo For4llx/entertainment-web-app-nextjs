@@ -1,9 +1,10 @@
 "use client";
 
 import { useRef } from "react";
-import utilsStyles from "@/styles/Utils.module.scss";
 import styles from "./AuthentificationLoginForm.module.scss";
 import AppButton from "@/components/base/AppButton";
+import AppHeading from "@/components/base/AppHeading";
+import AppInputField from "@/components/base/AppInputField";
 
 export default function AuthentificationLoginForm() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -27,17 +28,17 @@ export default function AuthentificationLoginForm() {
 
   return (
     <form className={styles.container} onSubmit={handleLogin}>
-      <h1 className={`${styles.title} ${utilsStyles.headingLarge}`}>Login</h1>
+      <AppHeading size="headingLarge" color="pureWhite">
+        Login
+      </AppHeading>
       <div className={styles.inputGroup}>
-        <input
-          className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
+        <AppInputField
           ref={emailRef}
           placeholder="Email"
           type={"text"}
           required
         />
-        <input
-          className={`${utilsStyles.inputField} ${utilsStyles.bodyMedium}`}
+        <AppInputField
           ref={passwordRef}
           placeholder="Password"
           type={"password"}

@@ -6,8 +6,7 @@
   border-radius: 20px;
   padding: 2rem;
   align-items: center;
-  padding-left: max(calc(50% - 400px / 2), 2rem);
-  padding-right: max(calc(50% - 400px / 2), 2rem);
+  width: 400px;
 }
 
 .paragraph {

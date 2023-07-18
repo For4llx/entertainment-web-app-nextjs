@@ -6,5 +6,9 @@ interface IProps {
 }
 
 export default function AuthentificationMain({ children }: IProps) {
-  return <main className={styles.container}>{children}</main>;
+  return (
+    <main className={`${styles.container} ${utilsStyles.container}`}>
+      {children}
+    </main>
+  );
 }
