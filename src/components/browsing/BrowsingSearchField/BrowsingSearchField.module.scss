@@ -1,12 +1,12 @@
 .searchField {
-  caret-color: var(--red);
-  color: var(--pureWhite);
+  caret-color: hsl(var(--red));
+  color: hsl(var(--pureWhite));
   padding-bottom: 14px;
   background-color: transparent;
   height: fit-content;
   width: 100%;
 
   &:focus {
-    border-bottom: 1px solid var(--greyishBlue);
+    border-bottom: 1px solid hsl(var(--greyishBlue));
   }
 }

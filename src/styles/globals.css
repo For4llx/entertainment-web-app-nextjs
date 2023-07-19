@@ -1,9 +1,9 @@
 :root {
-  --red: hsl(0, 97%, 63%);
-  --semiDarkBlue: hsl(223, 36%, 14%);
+  --red: 0, 97%, 63%;
+  --semiDarkBlue: 223, 36%, 14%;
   --darkBlue: 223, 30%, 9%;
   --pureWhite: 0, 0%, 100%;
-  --greyishBlue: hsl(223, 23%, 46%);
+  --greyishBlue: 223, 23%, 46%;
   --container: 1440px;
 }
 
@@ -18,7 +18,7 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background-color: var(--darkBlue);
+  background-color: hsl(var(--darkBlue));
 }
 
 ul {

@@ -6,16 +6,16 @@
 }
 
 .link {
-  color: var(--greyishBlue);
-  fill: var(--greyishBlue);
+  color: hsl(var(--greyishBlue));
+  fill: hsl(var(--greyishBlue));
 
   &:hover {
-    color: var(--red);
-    fill: var(--red);
+    color: hsl(var(--red));
+    fill: hsl(var(--red));
   }
 }
 
 .linkActive {
-  color: var(--pureWhite);
-  fill: var(--pureWhite);
+  color: hsl(var(--pureWhite));
+  fill: hsl(var(--pureWhite));
 }

@@ -37,53 +37,53 @@
 
 /* Color */
 .red {
-  color: var(--red);
-  fill: var(--red);
+  color: hsl(var(--red));
+  fill: hsl(var(--red));
 }
 
 .darkBlue {
-  color: var(--darkBlue);
-  fill: var(--darkBlue);
+  color: hsl(var(--darkBlue));
+  fill: hsl(var(--darkBlue));
 }
 
 .semiDarkBlue {
-  color: var(--semiDarkBlue);
-  fill: var(--semiDarkBlue);
+  color: hsl(var(--semiDarkBlue));
+  fill: hsl(var(--semiDarkBlue));
 }
 
 .greyishBlue {
-  color: var(--greyishBlue);
-  fill: var(--greyishBlue);
+  color: hsl(var(--greyishBlue));
+  fill: hsl(var(--greyishBlue));
 }
 
 .pureWhite {
-  color: var(--pureWhite);
-  fill: var(--pureWhite);
+  color: hsl(var(--pureWhite));
+  fill: hsl(var(--pureWhite));
 }
 
 .inputField {
   caret-color: var(--red);
   color: var(--pureWhite);
   padding-bottom: 14px;
-  border-bottom: 1px solid var(--greyishBlue);
+  border-bottom: 1px solid hsl(var(--greyishBlue));
   background-color: transparent;
 
   &::placeholder {
-    color: var(--greyishBlue);
+    color: hsl(var(--greyishBlue));
   }
 }
 
 .button {
   cursor: pointer;
-  background-color: var(--red);
-  color: var(--pureWhite);
+  background-color: hsl(var(--red));
+  color: hsl(var(--pureWhite));
   border-radius: 6px;
   padding: 14px;
   width: 100%;
 
   &:hover {
-    color: var(--darkBlue);
-    background-color: var(--pureWhite);
+    color: hsl(var(--darkBlue));
+    background-color: hsl(var(--pureWhite));
   }
 }
 

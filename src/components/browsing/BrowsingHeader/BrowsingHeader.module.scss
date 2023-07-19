@@ -9,7 +9,7 @@
   max-height: 960px;
   height: 100%;
 
-  background-color: var(--semiDarkBlue);
+  background-color: hsl(var(--semiDarkBlue));
   padding: 1.5rem;
   border-radius: 20px;
 }
@@ -17,6 +17,6 @@
 .avatar {
   position: absolute;
   bottom: 1.5rem;
-  border: 1px solid var(--pureWhite);
+  border: 1px solid hsl(var(--pureWhite));
   border-radius: 100%;
 }
