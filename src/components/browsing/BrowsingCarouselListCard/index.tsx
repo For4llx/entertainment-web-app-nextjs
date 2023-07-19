@@ -2,6 +2,7 @@ import AppHeading from "@/components/base/AppHeading";
 import AppParagraph from "@/components/base/AppParagraph";
 import { ICollection } from "@/interfaces/collection";
 import Image from "next/image";
+import BrowsingCarouselListCardBookmark from "../BrowsingCarouselListCardBookmark";
 import styles from "./BrowsingCarouselListCard.module.scss";
 
 interface IProps {
@@ -11,6 +12,7 @@ interface IProps {
 export default function BrowsingCarouselListCard({ collection }: IProps) {
   return (
     <article className={styles.container}>
+      <BrowsingCarouselListCardBookmark collection={collection} />
       <picture>
         <source srcSet={`/${collection.thumbnail[0].trending[0].large}`} />
         <source srcSet={`/${collection.thumbnail[0].trending[0].small}`} />

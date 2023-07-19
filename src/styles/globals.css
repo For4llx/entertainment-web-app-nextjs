@@ -1,8 +1,8 @@
 :root {
   --red: hsl(0, 97%, 63%);
   --semiDarkBlue: hsl(223, 36%, 14%);
-  --darkBlue: hsl(223, 30%, 9%);
-  --pureWhite: hsl(0, 0%, 100%);
+  --darkBlue: 223, 30%, 9%;
+  --pureWhite: 0, 0%, 100%;
   --greyishBlue: hsl(223, 23%, 46%);
   --container: 1440px;
 }
