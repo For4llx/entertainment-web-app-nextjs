@@ -1,13 +1,10 @@
 .container {
   position: relative;
-  width: fit-content;
-  overflow: hidden;
   border-radius: 8px;
-}
-
-.thumbnail {
-  height: 230px;
-  width: 470px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .list {
@@ -17,16 +14,9 @@
 
 .description {
   width: 100%;
-  padding: 1.5rem;
-  position: absolute;
-  bottom: 0;
-  background: linear-gradient(transparent, hsla(0, 0%, 0%, 0.75));
-  z-index: 1;
-  &:hover {
-    .button {
-      visibility: visible;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .bookmark {
@@ -49,6 +39,10 @@
     stroke: hsl(var(--darkBlue));
     background-color: hsl(var(--pureWhite));
   }
+}
+.thumbnail {
+  width: 280px;
+  height: 174px;
 }
 
 .item {
