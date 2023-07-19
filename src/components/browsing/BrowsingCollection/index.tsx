@@ -7,7 +7,11 @@ import { useContext, useEffect } from "react";
 import BrowsingCollectionlList from "../BrowsingCollectionList";
 import styles from "./BrowsingCollection.module.scss";
 
-export default function BrowsingCarousel() {
+interface IProps {
+  title: string;
+}
+
+export default function BrowsingCollection({ title }: IProps) {
   const { collections, setCollections } = useContext(CollectionContext);
 
   useEffect(() => {
@@ -19,7 +23,7 @@ export default function BrowsingCarousel() {
   return (
     <section className={`${styles.container} ${utilsStyles.container}`}>
       <AppHeading size="headingLarge" color={"pureWhite"}>
-        Recommended for you
+        {title}
       </AppHeading>
       <BrowsingCollectionlList collections={collections} />
     </section>

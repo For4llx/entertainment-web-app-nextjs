@@ -15,6 +15,7 @@ export default function BrowsingCarousel() {
       .then((response) => response.json())
       .then((data) => setCollections(data.collection));
   }, []);
+  console.log(collections);
 
   return (
     <section className={`${styles.container} ${utilsStyles.container}`}>

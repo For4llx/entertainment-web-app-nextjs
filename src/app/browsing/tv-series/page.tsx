@@ -4,8 +4,8 @@ import AppSearch from "@/components/browsing/BrowsingSearch";
 export default function TvSeriesPage() {
   return (
     <>
-      <AppSearch placeholder={"Search for tv series"} />
-      <BrowsingCollection />
+      <AppSearch placeholder={"Search for TV series"} />
+      <BrowsingCollection title="TV Series" />
     </>
   );
 }

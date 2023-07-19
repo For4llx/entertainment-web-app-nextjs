@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   const collectionRecommanded = await prisma.collection.findMany({
     include: {
-      Thumbnail: {
+      thumbnail: {
         include: {
           regular: true,
         },

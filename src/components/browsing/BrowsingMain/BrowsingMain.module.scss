@@ -1,3 +1,7 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  padding-top: 1.5rem;
   width: 100%;
 }

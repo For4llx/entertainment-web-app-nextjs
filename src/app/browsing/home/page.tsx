@@ -9,7 +9,7 @@ export default function HomePage() {
     <>
       <BrowsingSearch placeholder={"Search for movies or TV series"} />
       <BrowsingCarousel />
-      <BrowsingCollection />
+      <BrowsingCollection title="Recommended for you" />
     </>
   );
 }

@@ -12,7 +12,9 @@ export default function BrowsingHeaderNavigation() {
       <ul className={styles.list}>
         <li>
           <Link
-            className={pathname === "/home" ? styles.linkActive : styles.link}
+            className={
+              pathname === "/browsing/home" ? styles.linkActive : styles.link
+            }
             href="./home"
           >
             <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +24,9 @@ export default function BrowsingHeaderNavigation() {
         </li>
         <li>
           <Link
-            className={pathname === "/movies" ? styles.linkActive : styles.link}
+            className={
+              pathname === "/browsing/movies" ? styles.linkActive : styles.link
+            }
             href="./movies"
           >
             <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +37,9 @@ export default function BrowsingHeaderNavigation() {
         <li>
           <Link
             className={
-              pathname === "/tv-series" ? styles.linkActive : styles.link
+              pathname === "/browsing/tv-series"
+                ? styles.linkActive
+                : styles.link
             }
             href="./tv-series"
           >
@@ -45,7 +51,9 @@ export default function BrowsingHeaderNavigation() {
         <li>
           <Link
             className={
-              pathname === "/bookmarked" ? styles.linkActive : styles.link
+              pathname === "/browsing/bookmarked"
+                ? styles.linkActive
+                : styles.link
             }
             href="./bookmarked"
           >
