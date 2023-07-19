@@ -1,21 +1,2 @@
-.container {
-  cursor: pointer;
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: hsla(var(--darkBlue), 50%);
-  border-radius: 100%;
-  fill: transparent;
-  stroke: hsl(var(--pureWhite));
 
-  &:hover {
-    fill: hsl(var(--pureWhite));
-    stroke: hsl(var(--darkBlue));
-    background-color: hsl(var(--pureWhite));
-  }
-}
+
