@@ -15,7 +15,7 @@ export default function BrowsingCollection({ title }: IProps) {
   const { collections, setCollections } = useContext(CollectionContext);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/browsing/trending")
+    fetch("http://localhost:3000/api/browsing")
       .then((response) => response.json())
       .then((data) => setCollections(data.collection));
   }, []);

@@ -8,21 +8,20 @@ import BrowsingCarouselList from "../BrowsingCarouselList";
 import styles from "./BrowsingCarousel.module.scss";
 
 export default function BrowsingCarousel() {
-  const { collections, setCollections } = useContext(CollectionContext);
+  const { trendings, setTrendings } = useContext(CollectionContext);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/browsing/trending")
       .then((response) => response.json())
-      .then((data) => setCollections(data.collection));
+      .then((data) => setTrendings(data.collection));
   }, []);
-  console.log(collections);
 
   return (
     <section className={`${styles.container} ${utilsStyles.container}`}>
       <AppHeading size="headingLarge" color={"pureWhite"}>
         Trending
       </AppHeading>
-      <BrowsingCarouselList collections={collections} />
+      <BrowsingCarouselList collections={trendings} />
     </section>
   );
 }

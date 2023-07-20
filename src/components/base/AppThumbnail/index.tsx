@@ -11,17 +11,33 @@ interface IProps {
 export default function AppThumbnail({ collection, children }: IProps) {
   return (
     <div className={styles.thumbnail}>
-      <picture>
-        <source srcSet={`/${collection.thumbnail[0].trending[0].large}`} />
-        <source srcSet={`/${collection.thumbnail[0].trending[0].small}`} />
-        <Image
-          className={styles.image}
-          width={40}
-          height={40}
-          src={`/${collection.thumbnail[0].trending[0].large}`}
-          alt={collection.title}
-        />
-      </picture>
+      {collection.isTrending ? (
+        <picture>
+          <source srcSet={`/${collection.thumbnail[0].trending[0].large}`} />
+          <source srcSet={`/${collection.thumbnail[0].trending[0].small}`} />
+          <Image
+            className={styles.image}
+            width={40}
+            height={40}
+            src={`/${collection.thumbnail[0].trending[0].large}`}
+            alt={collection.title}
+          />
+        </picture>
+      ) : (
+        <picture>
+          <source srcSet={`/${collection.thumbnail[0].regular[0].large}`} />
+          <source srcSet={`/${collection.thumbnail[0].regular[0].medium}`} />
+          <source srcSet={`/${collection.thumbnail[0].regular[0].small}`} />
+          <Image
+            className={styles.image}
+            width={40}
+            height={40}
+            src={`/${collection.thumbnail[0].regular[0].large}`}
+            alt={collection.title}
+          />
+        </picture>
+      )}
+
       <div className={styles.overlay}>
         <div className={styles.button}>
           <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">

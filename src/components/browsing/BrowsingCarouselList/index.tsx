@@ -1,5 +1,6 @@
 import { ICollection } from "@/interfaces/collection";
 import BrowsingCarouselListCard from "../BrowsingCarouselListCard";
+import styles from "./BrowsingCarouselList.module.scss";
 
 interface IProps {
   collections: ICollection[];
@@ -11,5 +12,5 @@ export default function BrowsingCarouselList({ collections }: IProps) {
       <BrowsingCarouselListCard collection={collection} />
     </li>
   ));
-  return <ul>{browsingCarouselList}</ul>;
+  return <ul className={styles.container}>{browsingCarouselList}</ul>;
 }

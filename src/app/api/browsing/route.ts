@@ -2,7 +2,10 @@ import { prisma } from "@/app/db";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const collectionRecommanded = await prisma.collection.findMany({
+  const collection = await prisma.collection.findMany({
+    where: {
+      isTrending: false,
+    },
     include: {
       thumbnail: {
         include: {
@@ -12,5 +15,5 @@ export async function GET() {
     },
   });
 
-  return NextResponse.json({ collectionRecommanded });
+  return NextResponse.json({ collection });
 }
