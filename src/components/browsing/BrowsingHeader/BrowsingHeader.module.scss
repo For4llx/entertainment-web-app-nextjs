@@ -1,4 +1,16 @@
-.container {
+.header {
+  @media screen and (max-width: 768px) {
+    padding-top: 2rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+  @media screen and (max-width: 480px) {
+    padding-top: 0rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+  }
+}
+.sidebar {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -12,6 +24,20 @@
   background-color: hsl(var(--semiDarkBlue));
   padding: 1.5rem;
   border-radius: 20px;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: fit-content;
+    min-height: auto;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 480px) {
+    border-radius: 0;
+  }
 }
 
 .avatar {
@@ -19,4 +45,9 @@
   bottom: 1.5rem;
   border: 1px solid hsl(var(--pureWhite));
   border-radius: 100%;
+
+  @media screen and (max-width: 768px) {
+    position: inherit;
+    bottom: 0;
+  }
 }

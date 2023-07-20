@@ -2,4 +2,11 @@
   display: flex;
   height: 100%;
   padding: 2rem;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    padding: 0;
+  }
 }

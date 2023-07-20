@@ -5,16 +5,18 @@ import styles from "./BrowsingHeader.module.scss";
 
 export default function BrowsingHeader() {
   return (
-    <header className={styles.container}>
-      <AppLogo />
-      <BrowsingHeaderNavigation />
-      <Image
-        className={styles.avatar}
-        width={40}
-        height={40}
-        src="/./assets/image-avatar.png"
-        alt={"Avatar"}
-      />
+    <header className={styles.header}>
+      <div className={styles.sidebar}>
+        <AppLogo />
+        <BrowsingHeaderNavigation />
+        <Image
+          className={styles.avatar}
+          width={40}
+          height={40}
+          src="/./assets/image-avatar.png"
+          alt={"Avatar"}
+        />
+      </div>
     </header>
   );
 }

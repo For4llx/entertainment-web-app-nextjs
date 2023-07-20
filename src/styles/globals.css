@@ -5,6 +5,7 @@
   --pureWhite: 0, 0%, 100%;
   --greyishBlue: 223, 23%, 46%;
   --container: 1440px;
+  --tablet: 768px;
 }
 
 * {
