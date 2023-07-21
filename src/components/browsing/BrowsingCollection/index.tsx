@@ -1,6 +1,7 @@
 "use client";
 
 import AppHeading from "@/components/base/AppHeading";
+import { AuthentificationContext } from "@/provider/AuthentificationProvider";
 import { CollectionContext } from "@/provider/CollectionProvider";
 import utilsStyles from "@/styles/Utils.module.scss";
 import { useContext, useEffect } from "react";
@@ -13,9 +14,15 @@ interface IProps {
 
 export default function BrowsingCollection({ title }: IProps) {
   const { collections, setCollections } = useContext(CollectionContext);
+  const { token } = useContext(AuthentificationContext);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/browsing")
+    fetch("http://localhost:3000/api/browsing", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => setCollections(data.collection));
   }, []);

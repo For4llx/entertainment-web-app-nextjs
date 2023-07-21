@@ -22,10 +22,13 @@ export default function AuthentificationSignupForm() {
       throw new Error("Misisng a field");
     }
 
-    const response = await fetch("./api/authentification/signup", {
-      method: "POST",
-      body,
-    });
+    const response = await fetch(
+      "http://localhost:3000/api/authentification/signup",
+      {
+        method: "POST",
+        body,
+      }
+    );
   }
 
   return (

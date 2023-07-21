@@ -1,14 +1,18 @@
 "use client";
 
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import styles from "./AuthentificationLoginForm.module.scss";
 import AppButton from "@/components/base/AppButton";
 import AppHeading from "@/components/base/AppHeading";
 import AppInputField from "@/components/base/AppInputField";
+import { AuthentificationContext } from "@/provider/AuthentificationProvider";
+import { useRouter } from "next/navigation";
 
 export default function AuthentificationLoginForm() {
+  const router = useRouter();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const { setToken, setUser } = useContext(AuthentificationContext);
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -19,11 +23,17 @@ export default function AuthentificationLoginForm() {
     if (!email || !password) {
       throw new Error("");
     }
-
-    const response = await fetch("./api/authentification/login", {
-      method: "POST",
-      body,
-    });
+    const response = await fetch(
+      "http://localhost:3000/api/authentification/login",
+      {
+        method: "POST",
+        body,
+      }
+    );
+    const data = await response.json();
+    setToken(data.token);
+    setUser(data.currentUser);
+    router.push("http://localhost:3000/browsing/home");
   }
 
   return (

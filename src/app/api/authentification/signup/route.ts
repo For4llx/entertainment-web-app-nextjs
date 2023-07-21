@@ -1,7 +1,9 @@
 import { prisma } from "@/app/db";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import { nanoid } from "nanoid";
+import { getJwtSecretKey } from "@/lib/auth";
+import { SignJWT } from "jose";
 
 export async function POST(request: NextRequest) {
   const { email, password, passwordRepeated } = await request.json();
@@ -19,9 +21,12 @@ export async function POST(request: NextRequest) {
   }
 
   const passwordHash = await bcrypt.hash(password, 10);
-  const token = jwt.sign({ userId: email.userId }, process.env.TOKEN_KEY, {
-    expiresIn: "24h",
-  });
+  const token = await new SignJWT({})
+    .setProtectedHeader({ alg: "HS256" })
+    .setJti(nanoid())
+    .setIssuedAt()
+    .setExpirationTime("60m")
+    .sign(new TextEncoder().encode(getJwtSecretKey()));
   const newUser = await prisma.user.create({
     data: { email, password: passwordHash },
   });
