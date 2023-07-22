@@ -6,12 +6,13 @@ import styles from "./AppThumbnail.module.scss";
 interface IProps {
   collection: ICollection;
   children?: React.ReactNode;
+  size: "large" | "medium";
 }
 
-export default function AppThumbnail({ collection, children }: IProps) {
+export default function AppThumbnail({ collection, children, size }: IProps) {
   return (
     <div className={styles.thumbnail}>
-      {collection.isTrending ? (
+      {size === "large" ? (
         <picture>
           <source srcSet={`/${collection.thumbnail[0].trending[0].large}`} />
           <source srcSet={`/${collection.thumbnail[0].trending[0].small}`} />

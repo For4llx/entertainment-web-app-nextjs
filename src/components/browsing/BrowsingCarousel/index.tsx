@@ -1,16 +1,16 @@
 "use client";
 
 import AppHeading from "@/components/base/AppHeading";
-import { AuthentificationContext } from "@/provider/AuthentificationProvider";
-import { CollectionContext } from "@/provider/CollectionProvider";
+import { useAuthentificationContext } from "@/provider/AuthentificationProvider";
+import { useCollectionContext } from "@/provider/CollectionProvider";
 import utilsStyles from "@/styles/Utils.module.scss";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import BrowsingCarouselList from "../BrowsingCarouselList";
 import styles from "./BrowsingCarousel.module.scss";
 
 export default function BrowsingCarousel() {
-  const { trendings, setTrendings } = useContext(CollectionContext);
-  const { token } = useContext(AuthentificationContext);
+  const { trendings, setTrendings } = useCollectionContext();
+  const { token } = useAuthentificationContext();
 
   useEffect(() => {
     fetch("http://localhost:3000/api/browsing/trending", {

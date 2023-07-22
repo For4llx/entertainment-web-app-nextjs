@@ -1,10 +1,10 @@
 "use client";
 
 import { IUser } from "@/interfaces/user";
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 interface IContext {
-  user: IUser | undefined;
+  user: IUser;
   token: string;
   setUser: Function;
   setToken: Function;
@@ -16,8 +16,14 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export default function AuthentificationProvider({ children }: IProps) {
-  const [user, setUser] = useState<IUser>();
+export function AuthentificationProvider({ children }: IProps) {
+  const [user, setUser] = useState<IUser>({
+    id: 0,
+    email: "",
+    password: "",
+    avatar: "",
+    collections: [],
+  });
   const [token, setToken] = useState<string>("");
 
   return (
@@ -27,4 +33,8 @@ export default function AuthentificationProvider({ children }: IProps) {
       {children}
     </AuthentificationContext.Provider>
   );
+}
+
+export function useAuthentificationContext(): IContext {
+  return useContext(AuthentificationContext);
 }

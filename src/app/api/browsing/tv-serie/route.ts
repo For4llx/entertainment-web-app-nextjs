@@ -2,12 +2,12 @@ import { prisma } from "@/app/db";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const collectionTvSeries = await prisma.collection.findMany({
+  const collection = await prisma.collection.findMany({
     where: {
       category: "TV Series",
     },
     include: {
-      Thumbnail: {
+      thumbnail: {
         include: {
           regular: true,
         },
@@ -15,5 +15,5 @@ export async function GET() {
     },
   });
 
-  return NextResponse.json({ collectionTvSeries });
+  return NextResponse.json({ collection });
 }

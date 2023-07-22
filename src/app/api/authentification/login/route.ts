@@ -9,6 +9,13 @@ export async function POST(request: NextRequest) {
   const { email, password } = await request.json();
   const currentUser = await prisma.user.findUnique({
     where: { email },
+    include: {
+      collections: {
+        include: {
+          thumbnail: true,
+        },
+      },
+    },
   });
 
   if (!currentUser) {

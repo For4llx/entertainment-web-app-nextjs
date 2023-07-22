@@ -3,7 +3,7 @@ import {
   BrowsingMain,
   BrowsingHeader,
 } from "@/components/browsing";
-import CollectionProvider from "@/provider/CollectionProvider";
+import { CollectionProvider } from "@/provider/CollectionProvider";
 
 export default function TvSeriesLayout({
   children,

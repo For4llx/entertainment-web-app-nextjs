@@ -1,8 +1,8 @@
+import AppBookmark from "@/components/base/AppBookmark";
 import AppHeading from "@/components/base/AppHeading";
 import AppParagraph from "@/components/base/AppParagraph";
 import AppThumbnail from "@/components/base/AppThumbnail";
 import { ICollection } from "@/interfaces/collection";
-import Image from "next/image";
 import styles from "./BrowsingCarouselListCard.module.scss";
 
 interface IProps {
@@ -12,16 +12,9 @@ interface IProps {
 export default function BrowsingCarouselListCard({ collection }: IProps) {
   return (
     <article className={styles.container}>
-      <button className={styles.bookmark}>
-        <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="m10.518.75.399 12.214-5.084-4.24-4.535 4.426L.75 1.036l9.768-.285Z"
-            strokeWidth="1.5"
-          />
-        </svg>
-      </button>
+      <AppBookmark collection={collection} />
       <div className={styles.thumbnail}>
-        <AppThumbnail collection={collection}>
+        <AppThumbnail size="large" collection={collection}>
           <div className={styles.description}>
             <ul className={styles.list}>
               <li className={styles.item}>

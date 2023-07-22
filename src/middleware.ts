@@ -5,7 +5,7 @@ import { verifyAuth } from "./lib/auth";
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
   const token = request.headers.get("authorization")?.split(" ")[1];
-
+  console.log(token);
   const verifiedToken =
     token &&
     (await verifyAuth(token).catch((error) => {
@@ -20,5 +20,5 @@ export async function middleware(request: NextRequest) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ["/api/browsing/:path*", "/browsing/:path*"],
+  matcher: ["/api/browsing/:path*"],
 };
