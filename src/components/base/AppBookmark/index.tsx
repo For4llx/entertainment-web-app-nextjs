@@ -1,8 +1,8 @@
 "use client";
 
 import { ICollection } from "@/interfaces/collection";
-import { AuthentificationContext } from "@/provider/AuthentificationProvider";
-import { useContext, useEffect, useState } from "react";
+import { useAuthentificationContext } from "@/provider/AuthentificationProvider";
+import { useEffect, useState } from "react";
 import styles from "./AppBookmark.module.scss";
 
 interface IProps {
@@ -10,16 +10,15 @@ interface IProps {
 }
 
 export default function AppBookmark({ collection }: IProps) {
-  const { token, user } = useContext(AuthentificationContext);
+  const { token, user } = useAuthentificationContext();
   const [isBookmarked, setIsBookmkared] = useState<boolean>(false);
-
   useEffect(() => {
     user.collections.map((collectionUser) => {
       if (collectionUser.id === collection.id) {
         setIsBookmkared(true);
       }
     });
-  }, []);
+  }, [user.collections, collection.id]);
 
   function handleBookmark(e) {
     e.preventDefault();
@@ -35,10 +34,9 @@ export default function AppBookmark({ collection }: IProps) {
         userId: user.id,
         isBookmarked,
       }),
+      cache: "no-store",
     });
-    setIsBookmkared((value) => !value);
   }
-
   return (
     <button
       id={collection.id.toString()}
@@ -54,3 +52,35 @@ export default function AppBookmark({ collection }: IProps) {
     </button>
   );
 }
+
+/*
+  const router = useRouter();
+  const { token, user } = useAuthentificationContext();
+  const [isBookmarked, setIsBookmkared] = useState<boolean>(false);
+  useEffect(() => {
+    user.collections.map((collectionUser) => {
+      if (collectionUser.id === collection.id) {
+        setIsBookmkared(true);
+      }
+    });
+  }, [user.collections, collection.id]);
+
+  function handleBookmark(e) {
+    e.preventDefault();
+    const collectionId = e.currentTarget.id;
+
+    fetch(`http://localhost:3000/api/browsing/bookmarked/${collectionId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        userId: user.id,
+        isBookmarked,
+      }),
+      cache: "no-store",
+    });
+    router.refresh();
+  }
+*/

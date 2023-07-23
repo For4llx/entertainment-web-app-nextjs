@@ -69,18 +69,3 @@ export async function GET(
   });
   return NextResponse.json({ movies, tvSeries });
 }
-
-/*
-    include: {
-      collections: {
-        where: { category: "TV Series" },
-        include: {
-          thumbnail: {
-            include: {
-              regular: true,
-            },
-          },
-        },
-      },
-    },
-*/

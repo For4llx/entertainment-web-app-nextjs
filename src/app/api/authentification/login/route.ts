@@ -11,8 +11,8 @@ export async function POST(request: NextRequest) {
     where: { email },
     include: {
       collections: {
-        include: {
-          thumbnail: true,
+        select: {
+          id: true,
         },
       },
     },

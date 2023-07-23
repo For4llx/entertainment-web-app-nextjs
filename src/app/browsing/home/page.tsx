@@ -19,6 +19,7 @@ export default function HomePage() {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      cache: "no-store",
     })
       .then((response) => response.json())
       .then((data) => setCollections(data.collection));
