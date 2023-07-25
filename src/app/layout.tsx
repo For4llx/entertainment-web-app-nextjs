@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import QueryProvider from "@/provider/QueryProvider";
 import { AuthentificationProvider } from "@/provider/AuthentificationProvider";
+import NextAuthSessionProvider from "@/provider/sessionProvider";
 const outfit = Outfit({ subsets: ["latin"], weight: ["300", "500"] });
 
 export const metadata: Metadata = {
@@ -19,7 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={outfit.className}>
         <QueryProvider>
-          <AuthentificationProvider>{children}</AuthentificationProvider>
+          <NextAuthSessionProvider>
+            <AuthentificationProvider>{children}</AuthentificationProvider>
+          </NextAuthSessionProvider>
         </QueryProvider>
       </body>
     </html>

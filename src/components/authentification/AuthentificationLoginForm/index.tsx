@@ -7,33 +7,22 @@ import AppHeading from "@/components/base/AppHeading";
 import AppInputField from "@/components/base/AppInputField";
 import { AuthentificationContext } from "@/provider/AuthentificationProvider";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 export default function AuthentificationLoginForm() {
   const router = useRouter();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const { setToken, setUser } = useContext(AuthentificationContext);
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     const email = emailRef?.current?.value;
     const password = passwordRef?.current?.value;
-    const body = JSON.stringify({ email, password });
 
-    if (!email || !password) {
-      throw new Error("");
-    }
-    const response = await fetch(
-      "http://localhost:3000/api/authentification/login",
-      {
-        method: "POST",
-        body,
-      }
-    );
-    const data = await response.json();
-    setToken(data.token);
-    setUser(data.currentUser);
-    router.push("http://localhost:3000/browsing/home");
+    await signIn("credentials", {
+      email,
+      password,
+    });
   }
 
   return (
@@ -59,3 +48,27 @@ export default function AuthentificationLoginForm() {
     </form>
   );
 }
+
+/*
+  async function handleLogin(e: React.FormEvent) {
+    e.preventDefault();
+    const email = emailRef?.current?.value;
+    const password = passwordRef?.current?.value;
+    const body = JSON.stringify({ email, password });
+
+    if (!email || !password) {
+      throw new Error("");
+    }
+    const response = await fetch(
+      "http://localhost:3000/api/authentification/login",
+      {
+        method: "POST",
+        body,
+      }
+    );
+    const data = await response.json();
+    setToken(data.token);
+    setUser(data.currentUser);
+    router.push("http://localhost:3000/browsing/home");
+  }
+*/

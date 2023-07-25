@@ -1,34 +1,55 @@
-"use client";
-
+import { options } from "@/app/api/auth/[...nextauth]/options";
+import { prisma } from "@/app/db";
 import { BrowsingCollection, BrowsingSearch } from "@/components/browsing";
-import { useAuthentificationContext } from "@/provider/AuthentificationProvider";
-import { useCollectionContext } from "@/provider/CollectionProvider";
-import { useEffect } from "react";
+import { IUser } from "@/interfaces/user";
+import { getServerSession, Session } from "next-auth";
 
-export default function HomePage() {
-  const { movies, setMovies, tvSeries, setTVSeries } = useCollectionContext();
-  const { token, user } = useAuthentificationContext();
-
-  useEffect(() => {
-    const userId = user.id;
-    fetch(`http://localhost:3000/api/browsing/bookmarked/${userId}`, {
+async function getBookmarked(userId: number) {
+  const response = await fetch(
+    `http://localhost:3000/api/browsing/bookmarked/${userId}`,
+    {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setMovies(data.movies[0].collections),
-          setTVSeries(data.tvSeries[0].collections);
-      });
-  }, []);
+    }
+  );
+  const data = await response.json();
+  console.log(data.movies[0].collections);
+  console.log(data.tvSeries[0].collections);
+  return data;
+}
+
+async function getUser(email: string) {
+  const user = await prisma.user.findUnique({
+    where: { email },
+    include: {
+      collections: {
+        select: {
+          id: true,
+        },
+      },
+    },
+  });
+  return user as IUser;
+}
+export default async function HomePage() {
+  const session = (await getServerSession(options)) as Session;
+  const user = await getUser(session.user!.email as string);
+  const { movies, tvSeries } = await getBookmarked(user.id);
 
   return (
     <>
       <BrowsingSearch placeholder={"Search for bookmarked shows"} />
-      <BrowsingCollection collections={movies} title="Bookmarked Movies" />
-      <BrowsingCollection collections={tvSeries} title="Bookmarked TV Series" />
+      <BrowsingCollection
+        collections={movies[0].collections}
+        title="Bookmarked Movies"
+        user={user}
+      />
+      <BrowsingCollection
+        user={user}
+        collections={tvSeries[0].collections}
+        title="Bookmarked TV Series"
+      />
     </>
   );
 }

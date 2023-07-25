@@ -8,12 +8,19 @@ import styles from "./BrowsingCollectionListCard.module.scss";
 
 interface IProps {
   collection: ICollection;
+  isBookmarkedInitial: boolean;
 }
 
-export default function BrowsingCollectionListCard({ collection }: IProps) {
+export default function BrowsingCollectionListCard({
+  collection,
+  isBookmarkedInitial,
+}: IProps) {
   return (
     <article className={styles.container}>
-      <AppBookmark collection={collection} />
+      <AppBookmark
+        isBookmarkedInitial={isBookmarkedInitial}
+        collection={collection}
+      />
       <div className={styles.thumbnail}>
         <AppThumbnail size="medium" collection={collection} />
       </div>

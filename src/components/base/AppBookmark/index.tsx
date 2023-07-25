@@ -2,24 +2,22 @@
 
 import { ICollection } from "@/interfaces/collection";
 import { useAuthentificationContext } from "@/provider/AuthentificationProvider";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./AppBookmark.module.scss";
 
 interface IProps {
   collection: ICollection;
+  isBookmarkedInitial: boolean;
 }
 
-export default function AppBookmark({ collection }: IProps) {
-  const { token, user } = useAuthentificationContext();
-  const [isBookmarked, setIsBookmkared] = useState<boolean>(false);
-  useEffect(() => {
-    user.collections.map((collectionUser) => {
-      if (collectionUser.id === collection.id) {
-        setIsBookmkared(true);
-      }
-    });
-  }, [user.collections, collection.id]);
-
+export default function AppBookmark({
+  collection,
+  isBookmarkedInitial,
+}: IProps) {
+  const [isBookmarked, setIsBookmkared] =
+    useState<boolean>(isBookmarkedInitial);
+  const router = useRouter();
   function handleBookmark(e) {
     e.preventDefault();
     const collectionId = e.currentTarget.id;
@@ -28,14 +26,15 @@ export default function AppBookmark({ collection }: IProps) {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        userId: user.id,
+        userId: 1,
         isBookmarked,
       }),
       cache: "no-store",
     });
+    setIsBookmkared((value) => !value);
+    router.refresh();
   }
   return (
     <button
@@ -83,4 +82,15 @@ export default function AppBookmark({ collection }: IProps) {
     });
     router.refresh();
   }
+*/
+
+/*
+  useEffect(() => {
+    session.user.collections.map((collectionUser) => {
+      console.log(collectionUser.id);
+      if (collectionUser.id === collection.id) {
+        setIsBookmkared(true);
+      }
+    });
+  }, [user.collections, collection.id]);
 */
