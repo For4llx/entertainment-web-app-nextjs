@@ -1,28 +1,14 @@
-"use client";
-
 import AppHeading from "@/components/base/AppHeading";
-import { useAuthentificationContext } from "@/provider/AuthentificationProvider";
-import { useCollectionContext } from "@/provider/CollectionProvider";
+import { ICollection } from "@/interfaces/collection";
 import utilsStyles from "@/styles/Utils.module.scss";
-import { useEffect } from "react";
 import BrowsingCarouselList from "../BrowsingCarouselList";
 import styles from "./BrowsingCarousel.module.scss";
 
-export default function BrowsingCarousel() {
-  const { trendings, setTrendings } = useCollectionContext();
-  const { token } = useAuthentificationContext();
+interface IProps {
+  trendings: ICollection[];
+}
 
-  useEffect(() => {
-    fetch("http://localhost:3000/api/browsing/trending", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setTrendings(data.collection));
-  }, []);
-
+export default function BrowsingCarousel({ trendings }: IProps) {
   return (
     <section className={`${styles.container} ${utilsStyles.container}`}>
       <AppHeading size="headingLarge" color={"pureWhite"}>

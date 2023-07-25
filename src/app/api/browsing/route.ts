@@ -2,7 +2,7 @@ import { prisma } from "@/app/db";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const collection = await prisma.collection.findMany({
+  const collections = await prisma.collection.findMany({
     where: {
       isTrending: false,
     },
@@ -15,5 +15,5 @@ export async function GET() {
     },
   });
 
-  return NextResponse.json({ collection });
+  return NextResponse.json({ collections });
 }

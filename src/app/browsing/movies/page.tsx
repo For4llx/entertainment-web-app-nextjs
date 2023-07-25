@@ -1,27 +1,23 @@
-"use client";
-
+import { options } from "@/app/api/auth/[...nextauth]/options";
+import { getUser } from "@/components/authentification/AuthentificationAPI";
 import { BrowsingCollection, BrowsingSearch } from "@/components/browsing";
-import { useAuthentificationContext } from "@/provider/AuthentificationProvider";
-import { useCollectionContext } from "@/provider/CollectionProvider";
-import { useEffect } from "react";
+import { getMovies } from "@/components/browsing/BrowsingAPI";
+import { getServerSession, Session } from "next-auth";
 
-export default function MoviesPage() {
-  const { collections, setCollections } = useCollectionContext();
-  const { token } = useAuthentificationContext();
-  useEffect(() => {
-    fetch("http://localhost:3000/api/browsing/movie", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setCollections(data.collection));
-  }, []);
+export default async function MoviesPage() {
+  const session = (await getServerSession(options)) as Session;
+  const collections = await getMovies();
+  const user = await getUser(session.user!.email as string);
+  console.log(collections);
+
   return (
     <>
       <BrowsingSearch placeholder={"Search for movies"} />
-      <BrowsingCollection collections={collections} title="Movies" />
+      <BrowsingCollection
+        collections={collections}
+        title="Movies"
+        user={user}
+      />
     </>
   );
 }

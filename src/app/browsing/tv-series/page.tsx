@@ -1,28 +1,23 @@
-"use client";
-
+import { options } from "@/app/api/auth/[...nextauth]/options";
+import { getUser } from "@/components/authentification/AuthentificationAPI";
+import { getTvSeries } from "@/components/browsing/BrowsingAPI";
 import BrowsingCollection from "@/components/browsing/BrowsingCollection";
 import AppSearch from "@/components/browsing/BrowsingSearch";
-import { useAuthentificationContext } from "@/provider/AuthentificationProvider";
-import { useCollectionContext } from "@/provider/CollectionProvider";
-import { useEffect } from "react";
+import { getServerSession, Session } from "next-auth";
 
-export default function TvSeriesPage() {
-  const { collections, setCollections } = useCollectionContext();
-  const { token } = useAuthentificationContext();
-  useEffect(() => {
-    fetch("http://localhost:3000/api/browsing/tv-serie", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setCollections(data.collection));
-  }, []);
+export default async function TvSeriesPage() {
+  const session = (await getServerSession(options)) as Session;
+  const collections = await getTvSeries();
+  const user = await getUser(session.user!.email as string);
+
   return (
     <>
       <AppSearch placeholder={"Search for TV series"} />
-      <BrowsingCollection collections={collections} title="TV Series" />
+      <BrowsingCollection
+        collections={collections}
+        title="TV Series"
+        user={user}
+      />
     </>
   );
 }
